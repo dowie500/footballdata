@@ -1,0 +1,9 @@
+# Folders for git to ignore
+target/**
+node
+node_modules
+bower_components
+.tmp
+
+#Files for git to ignore
+

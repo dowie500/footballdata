@@ -1,21 +1,91 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>dpball.footballdata</groupId>
-  <artifactId>footballdata</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
-  <name>Football Data Analytics Program</name>
-  <description>Initial data analytics for football matches.</description>
-  <dependencies>
-  	<dependency>
-  		<groupId>log4j</groupId>
-  		<artifactId>log4j</artifactId>
-  		<version>1.2.17</version>
-  	</dependency>
-  	<dependency>
-  		<groupId>javax.servlet</groupId>
-  		<artifactId>servlet-api</artifactId>
-  		<version>3.0-alpha-1</version>
-  	</dependency>
-  </dependencies>
-  <packaging>war</packaging>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>dpball.footballdata</groupId>
+	<artifactId>footballdata</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>Football Data Analytics Program</name>
+	<description>Initial data analytics for football matches.</description>
+	<dependencies>
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>1.2.17</version>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+			<version>3.0-alpha-1</version>
+		</dependency>
+	</dependencies>
+	<packaging>war</packaging>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>com.github.eirslett</groupId>
+				<artifactId>frontend-maven-plugin</artifactId>
+				<version>1.0</version>
+
+				<executions>
+					<execution>
+						<id>install node and npm</id>
+						<goals>
+							<goal>install-node-and-npm</goal>
+						</goals>
+						<configuration>
+							<nodeVersion>v0.10.36</nodeVersion>
+							<npmVersion>2.4.1</npmVersion>
+						</configuration>
+					</execution>
+
+					<execution>
+						<id>npm install</id>
+						<goals>
+							<goal>npm</goal>
+						</goals>
+						<configuration>
+							<arguments>install</arguments>
+						</configuration>
+					</execution>
+
+					<execution>
+						<id>bower install</id>
+						<goals>
+							<goal>bower</goal>
+						</goals>
+						<configuration>
+							<arguments>install</arguments>
+						</configuration>
+					</execution>
+
+					<execution>
+						<id>grunt build</id>
+						<goals>
+							<goal>grunt</goal>
+						</goals>
+						<configuration>
+							<arguments>build</arguments>
+						</configuration>
+					</execution>
+
+				</executions>
+
+
+				<!-- Block of code used to set up project regeneration on file changes. 
+					One way to achieve this is to use grunt-contrib-watch, but using Eclipse, 
+					it’s not going to work out of the box. We’ll also need to setup M2E life-cycle 
+					mappings to support Eclipse incremental builds. -->
+				<configuration>
+					<srcdir>${basedir}/src/main/sourceapp</srcdir>
+					<outputdir>${basedir}/src/main/webapp</outputdir>
+					<triggerfiles>
+						<triggerfile>Gruntfile.js</triggerfile>
+						<triggerfile>package.json</triggerfile>
+					</triggerfiles>
+					<arguments>${target.environment}</arguments>
+				</configuration>
+
+			</plugin>
+		</plugins>
+	</build>
 </project>
