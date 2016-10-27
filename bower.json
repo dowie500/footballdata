@@ -1,5 +1,5 @@
 {
-	"name": "footballdata",
+	"name": "footballdata-gui",
 	"version": "0.0.1",
 	"appPath": "src/main/webapp",
 	"dependencies": {

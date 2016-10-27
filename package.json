@@ -1,5 +1,5 @@
 {
-    "name": "footballdata",
+    "name": "footballdata-gui",
     "version": "0.0.1",
     "description": "Frontend GUI for football data analytics project",
     "dependencies": {
@@ -12,7 +12,9 @@
         "grunt-contrib-uglify": "~0.7.0",
         "grunt-sass": "~0.17.0",
         "jit-grunt": "~0.9.0",
-        "time-grunt": "~1.0.0"
+        "time-grunt": "~1.0.0",
+        "grunt-include-bootstrap": "0.1.1",
+        "grunt-contrib-jshint": "latest"
     },
     "engines": {
         "node": ">=0.10.0"
