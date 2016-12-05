@@ -1,47 +1,40 @@
 package dpball.footballdata;
 
+import java.time.LocalDateTime;
+import java.util.concurrent.TimeUnit;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 
 import org.apache.log4j.Logger;
 
-public class FootballData extends HttpServlet
-{
+import dpball.footballdata.rest.TeamDataService;
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-	private static final Logger logger = Logger.getLogger(FootballData.class);
+public class FootballData extends HttpServlet {
 
-	/**
-	 * @param args
-	 */
-//	public static void main(String[] args) {
-//		// TODO Auto-generated method stub
-//		System.out.print("Starting application......");
-//		
-//		logger.info("Starting application...logging to log");
-//
-//	}
+    private static final long serialVersionUID = 1L;
+    private static final Logger LOGGER = Logger.getLogger(FootballData.class);
 
-	public void init() throws ServletException
-	{
-		// TODO Auto-generated method stub
-		System.out.print("Starting application......");
-		
-		logger.info("Starting application...logging to log");
-		logger.warn("THis is a warning message");
-		
-		person p1 = new person("Daniel", 35);
-		person p2 = new person("Martijn", 33);
-		
-		logger.info("Person created " + p1.getName() + ", aged " + p1.getAge());
-		logger.error("Person created " + p2.getName() + ", aged " + p2.getAge());
+    public void init() throws ServletException {
+        // TODO Auto-generated method stub
+        System.out.print("Starting application......");
 
-		p1.setAge(21);
-		
-		logger.info("Person created " + p1.getName() + ", aged " + p1.getAge());
-	}
+        LOGGER.info("Starting application at " + LocalDateTime.now());
+        
+        LOGGER.info("Checking online football data stores for new data");
+        
+        try {
+			TimeUnit.SECONDS.sleep(5);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+        TeamDataService testTeamData = new TeamDataService();
+        testTeamData.load();
+        
+
+
+    }
 
 }
