@@ -1,7 +1,7 @@
 'use strict';
   // Here we set up an angular module. We'll attach controllers and 
   // other components to this module.
-  angular.module('testApp', ['ui.bootstrap'])
+  angular.module('footballData', ['ui.bootstrap'])
     // Angular supports chaining, so here we chain the config function onto
     // the module we're configuring.
     .config(function ($routeProvider) {

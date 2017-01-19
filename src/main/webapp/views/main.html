@@ -1,17 +1,20 @@
-<div class="hero-unit">
+<div class="hero-unit" ng-controller="MainCtrl">
     <h1>'Allo, 'Allo!</h1>
     <p>You now have</p>
     <ul>
         <li class="dropdown"><a class="dropdown-toggle"> Click me to
             see some awesome things! </a>
             <ul class="dropdown-menu">
-                <li ng-repeat="thing in awesomeThings"><a>{{thing}}</a></li>
+                <li ng-repeat="thing in MainCtrl.awesomeThings"><a>{{thing}}</a></li>
             </ul>
         </li>
     </ul>
     <p>installed.</p>
     <h3>Enjoy coding! - Yeoman</h3>
 </div>
+
+
+<!--
 [/js]
 
 <strong>The Index File: app/index.html</strong>
@@ -20,24 +23,24 @@
 <html>
 <head>...
 </head>
-<!-- The ng-app directive tells angular which module we'll use
-    for our app. In this case the one defined in scripts/app.js -->
+&lt;!&ndash; The ng-app directive tells angular which module we'll use
+    for our app. In this case the one defined in scripts/app.js &ndash;&gt;
 <body ng-app="testApp">
 ...
-<!-- The ng-view directive specifies that our templates
-  (such as views/main.html) will be loaded into this div. -->
+&lt;!&ndash; The ng-view directive specifies that our templates
+  (such as views/main.html) will be loaded into this div. &ndash;&gt;
 <div class="container" ng-view></div>
 
-<!-- Here we load AngularJS and the AngularJS resource component -->
+&lt;!&ndash; Here we load AngularJS and the AngularJS resource component &ndash;&gt;
 <script src="components/angular/angular.js"></script>
 <script src="components/angular-resource/angular-resource.js"></script>
 
-<!-- Here we include our own angular scripts -->
-<!-- build:js scripts/scripts.js -->
+&lt;!&ndash; Here we include our own angular scripts &ndash;&gt;
+&lt;!&ndash; build:js scripts/scripts.js &ndash;&gt;
 <script src="scripts/app.js"></script>
 <script src="scripts/controllers/main.js"></script>
-<!-- endbuild -->
+&lt;!&ndash; endbuild &ndash;&gt;
 
 ...
 </body>
-</html>
+</html>-->
